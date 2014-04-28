@@ -64,18 +64,27 @@ function create() {
     ground.body.immovable = true;
 
 
-    var ledge = platforms.create(600, 200, 'platform');
+    var ledge = platforms.create(600, 300, 'platform');
     ledge.scale.setTo(0.5, 0.5);
     ledge.body.immovable = true;
 
 
-    ledge = platforms.create((600+60), 200, 'platformr');
+    ledge = platforms.create((600+60), 300, 'platformr');
     ledge.scale.setTo(0.5, 0.5);
     ledge.body.immovable = true;
 
-    ledge = platforms.create((600-60), 200, 'platforml');
+    ledge = platforms.create((600-60), 300, 'platforml');
     ledge.scale.setTo(0.5, 0.5);
     ledge.body.immovable = true;
+
+    var midledge = platforms.create(230, 240, 'platforml');
+    midledge.scale.setTo(0.5, 0.5);
+    midledge.body.immovable = true;
+
+    var midledge = platforms.create(230+60, 240, 'platformr');
+    midledge.scale.setTo(0.5, 0.5);
+    midledge.body.immovable = true;
+
 
     ledge = platforms.create(100, 400, 'platforml');
     ledge.scale.setTo(0.5, 0.5);
