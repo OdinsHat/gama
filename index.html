@@ -18,6 +18,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 var platforms;
 var player;
 var cursors;
+var stars;
 
 function preload() {
     game.load.image('sky', 'assets/sky.png');
@@ -93,6 +94,20 @@ function create() {
     ledge.scale.setTo(0.5, 0.5);
     ledge.body.immovable = true;
 
+    // Stars to collect
+    stars = game.add.group();
+    stars.enableBody = true;
+
+    for (var i = 0; i < 12; i++) {
+        var star = stars.create(i * 70, 0, 'star');
+        // Let them fall is a lot easier than placing them so as to avoid being 
+        // put inside objects I guess?
+        star.body.gravity.y = 300;
+
+        star.body.bounce.y = 0.7 + Math.random() * 0.2;
+    }
+
+
     // My player
     player = game.add.sprite(32, game.world.height - 150, 'dude');
     game.physics.arcade.enable(player);
@@ -112,6 +127,9 @@ function create() {
 
 function update() {
     game.physics.arcade.collide(player, platforms);
+
+    // We need this or the stars just go falling through the floor - funny but not useful
+    game.physics.arcade.collide(stars, platforms);
 
     // Make the guy stay still when nowts being pressed
     player.body.velocity.x = 0;
