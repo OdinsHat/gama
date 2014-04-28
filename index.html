@@ -17,6 +17,7 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var platforms;
 var player;
+var cursors;
 
 function preload() {
     game.load.image('sky', 'assets/sky.png');
@@ -94,10 +95,33 @@ function create() {
     // Note: Lookup flipping sprites
     player.animations.add('left', [0, 1, 2, 3], 10, true);
     player.animations.add('right', [5, 6, 7, 8], 10, true);
+
+    cursors = game.input.keyboard.createCursorKeys();
 }
 
 function update() {
     game.physics.arcade.collide(player, platforms);
+
+    // Make the guy stay still when nowts being pressed
+    player.body.velocity.x = 0;
+
+    // Sorting out left, right and stop
+    if (cursors.left.isDown){
+        player.body.velocity.x = -150;
+        player.animations.play('left');
+    }else if(cursors.right.isDown){
+        player.body.velocity.x = 150;
+        player.animations.play('right');
+    }else{
+        player.animations.stop();
+        player.frame = 4;
+    }
+
+    // JUMP!
+    if(cursors.up.isDown && player.body.touching.down){
+        player.body.velocity.y = -350;
+    }
+
 }
 
 </script>
