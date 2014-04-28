@@ -19,6 +19,7 @@ var platforms;
 var player;
 var cursors;
 var stars;
+var score = 0;
 
 function preload() {
     game.load.image('sky', 'assets/sky.png');
@@ -123,6 +124,8 @@ function create() {
     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
     cursors = game.input.keyboard.createCursorKeys();
+
+    scoreText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'})
 }
 
 function update() {
@@ -133,6 +136,9 @@ function update() {
 
     // Make the guy stay still when nowts being pressed
     player.body.velocity.x = 0;
+
+    // Enables player to collect stars "collectStar" is the callback function
+    game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
     // Sorting out left, right and stop
     if (cursors.left.isDown){
@@ -151,6 +157,13 @@ function update() {
         player.body.velocity.y = -350;
     }
 
+}
+
+function collectStar(player, star){
+    star.kill();
+
+    score++;
+    scoreText.text = 'Score: ' + score;
 }
 
 </script>
