@@ -79,8 +79,10 @@ function create() {
 
     ledge = platforms.create(100, 400, 'platforml');
     ledge.scale.setTo(0.5, 0.5);
+    ledge.body.immovable = true;
     ledge = platforms.create((100+60), 400, 'platformr');
     ledge.scale.setTo(0.5, 0.5);
+    ledge.body.immovable = true;
 
     // My player
     player = game.add.sprite(32, game.world.height - 150, 'dude');
