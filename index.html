@@ -40,10 +40,45 @@ function create() {
     platforms.enableBody = true;
 
     var ground = platforms.create(0, game.world.height - 64, 'ground1');
-    ground.scale.setTo(7, 1);
+    ground.scale.setTo(1, 1);
     ground.body.immovable = true;
-    
+    ground = platforms.create(128, game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
+    ground = platforms.create((128*2), game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
+    ground = platforms.create((128*3), game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
+    ground = platforms.create((128*4), game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
+    ground = platforms.create((128*5), game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
+    ground = platforms.create((128*6), game.world.height - 64, 'ground1');
+    ground.scale.setTo(1, 1);
+    ground.body.immovable = true;
 
+
+    var ledge = platforms.create(600, 200, 'platform');
+    ledge.scale.setTo(0.5, 0.5);
+    ledge.body.immovable = true;
+
+
+    ledge = platforms.create((600+60), 200, 'platformr');
+    ledge.scale.setTo(0.5, 0.5);
+    ledge.body.immovable = true;
+
+    ledge = platforms.create((600-60), 200, 'platforml');
+    ledge.scale.setTo(0.5, 0.5);
+    ledge.body.immovable = true;
+
+    ledge = platforms.create(100, 400, 'platforml');
+    ledge.scale.setTo(0.5, 0.5);
+    ledge = platforms.create((100+60), 400, 'platformr');
+    ledge.scale.setTo(0.5, 0.5);
 
 }
 
