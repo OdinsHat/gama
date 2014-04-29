@@ -10,7 +10,7 @@ Recent Changes
 * [2014-04-29] Bouncy sphere providing STARBURST!
 * [2014-04-28] Initial release
 
-*I expect it to grow into a AAA title within a month*
+*I expect it to grow into a AAA title within a month⸮*
 
 Game assets kindly provided by:
 * [Photon Storm](http://www.photonstorm.com/) 
@@ -24,6 +24,6 @@ Todo:
 * Randomised ledges
 * Splash screen
 * Obstacles
-* Dangerous obstaclews
+* Dangerous obstacles
 * Monsters
 * Multiple levels
