@@ -101,15 +101,7 @@ function create() {
     stars = game.add.group();
     stars.enableBody = true;
 
-    for (var i = 0; i < 12; i++) {
-        var star = stars.create(i * 70, 0, 'star');
-        // Let them fall is a lot easier than placing them so as to avoid being 
-        // put inside objects I guess?
-        star.body.gravity.y = 300;
-
-        star.body.bounce.y = 0.7 + Math.random() * 0.2;
-    }
-
+    starBurst();
 
     // My player
     player = game.add.sprite(32, game.world.height - 150, 'dude');
@@ -180,11 +172,8 @@ function collectStar(player, star){
     scoreText.text = 'Score: ' + score;
 }
 // STARBURST collision event with bouncy ball
-function starBurst(sphere, player){
+function starBurst(){
     // Stars to collect
-    stars = game.add.group();
-    stars.enableBody = true;
-
     for (var i = 0; i < 12; i++) {
         var star = stars.create(i * 70, 0, 'star');
         // Let them fall is a lot easier than placing them so as to avoid being 
