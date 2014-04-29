@@ -21,17 +21,18 @@ var cursors;
 var stars;
 var score = 0;
 var sphere;
+var sphereHit = 0;
 
 function preload() {
     game.load.image('sky', 'assets/sky.png');
-    
+
     game.load.image('ground1', 'assets/ground2.png');
     game.load.image('ground2', 'assets/ground5.png');
 
     game.load.image('platform', 'assets/stone1.png');
     game.load.image('platformr', 'assets/stoner.png');
     game.load.image('platforml', 'assets/stonel.png');
-    
+
     game.load.image('star', 'assets/star.png');
     game.load.image('sphere', 'assets/sphere.png');
 
@@ -138,13 +139,17 @@ function update() {
 
     // Bouncy sphere
     game.physics.arcade.collide(sphere, platforms);
-    game.physics.arcade.collide(sphere, player, starBurst, null, this);
+    game.physics.arcade.collide(sphere, player, sphereTouch, null, this);
+
 
     // Make the guy stay still when nowts being pressed
     player.body.velocity.x = 0;
 
     // Enables player to collect stars "collectStar" is the callback function
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
+
+    // The sphere will start eating stars after it has been hit twice
+    game.physics.arcade.collide(sphere, stars, eatStar, null, this);
 
     // Sorting out left, right and stop
     if (cursors.left.isDown){
@@ -171,12 +176,32 @@ function collectStar(player, star){
     score++;
     scoreText.text = 'Score: ' + score;
 }
+
+function eatStar(sphere, star){
+    if(sphereHit >= 2){
+        star.kill();
+        console.log('Eating stars?');
+        score--;
+        scoreText.text = 'Score: ' + score;
+    }
+}
+
+
+function sphereTouch(sphere, player){
+    sphereHit++;
+    if(sphereHit < 2){
+        starBurst();
+    }
+}
+
+
+
 // STARBURST collision event with bouncy ball
 function starBurst(){
     // Stars to collect
     for (var i = 0; i < 12; i++) {
         var star = stars.create(i * 70, 0, 'star');
-        // Let them fall is a lot easier than placing them so as to avoid being 
+        // Let them fall is a lot easier than placing them so as to avoid being
         // put inside objects I guess?
         star.body.gravity.y = 300;
 
