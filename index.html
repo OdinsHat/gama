@@ -1,6 +1,6 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
+<!doctype html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
 	<title>My First Phaser Game</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
@@ -22,6 +22,7 @@ var stars;
 var score = 0;
 var sphere;
 var sphereHit = 0;
+var music;
 
 function preload() {
     game.load.image('sky', 'assets/sky.png');
@@ -37,6 +38,8 @@ function preload() {
     game.load.image('sphere', 'assets/sphere.png');
 
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+
+    game.load.audio('awesome', ['assets/awesome-music.ogg']);
 }
 
 function create() {
@@ -128,7 +131,10 @@ function create() {
 
     cursors = game.input.keyboard.createCursorKeys();
 
-    scoreText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'})
+    scoreText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
+
+    music = game.add.audio('awesome');
+    music.play('', 0, 1, true);
 }
 
 function update() {
