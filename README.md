@@ -16,7 +16,8 @@ Game assets kindly provided by:
 * [Photon Storm](http://www.photonstorm.com/) 
 * [Aetherna](http://opengameart.org/content/2d-platform-ground-stone-tiles)
 * [athile](http://opengameart.org/content/colored-spheres)
- \- thank you!
+ 
+\- thank you!
 
 Todo:
 -----
