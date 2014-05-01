@@ -1,5 +1,13 @@
 (function(){
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gama');
+
+    var Gama = {}
+    Gama.MainMenu = function(game) { };
+    Gama.MainMenu.prototype = {
+
+    }
+
     var platforms;
     var player;
     var cursors;
