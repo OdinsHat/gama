@@ -12,3 +12,5 @@ var music;
 
 game.state.add('menu', menu_state);
 game.state.add('game', game_state);
+
+game.state.start('load');

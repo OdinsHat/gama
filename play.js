@@ -1,23 +1,5 @@
-(function(){
-
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gama');
-
-    var Gama = {}
-    Gama.MainMenu = function(game) { };
-    Gama.MainMenu.prototype = {
-
-    }
-
-    var platforms;
-    var player;
-    var cursors;
-    var stars;
-    var score = 0;
-    var sphere;
-    var sphereHit = 0;
-    var music;
-
-    function preload() {
+var game_state = {
+    preload: function() {
         game.load.image('sky', 'assets/sky.png');
 
         game.load.image('ground1', 'assets/ground2.png');
@@ -33,9 +15,9 @@
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
         game.load.audio('awesome', ['assets/awesome-music.ogg']);
-    }
+    },
 
-    function create() {
+    create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.add.sprite(0, 0, 'sky');
 
@@ -128,9 +110,9 @@
 
         music = game.add.audio('awesome');
         music.play('', 0, 1, true);
-    }
+    },
 
-    function update() {
+    update: function() {
         game.physics.arcade.collide(player, platforms);
 
         // We need this or the stars just go falling through the floor - funny but not useful
@@ -167,32 +149,32 @@
             player.body.velocity.y = -350;
         }
 
-    }
+    },
 
-    function collectStar(player, star){
+    collectStar: function(player, star){
         star.kill();
 
         score++;
         scoreText.text = 'Score: ' + score;
-    }
+    },
 
-    function eatStar(sphere, star){
+    eatStar: function(sphere, star){
         if(sphereHit >= 2){
             star.kill();
             console.log('Eating stars?');
             score--;
             scoreText.text = 'Score: ' + score;
         }
-    }
+    },
 
 
-    function sphereTouch(sphere, player){
+    sphereTouch: function(sphere, player){
         sphereHit++;
         starBurst();
-    }
+    },
 
     // STARBURST collision event with bouncy ball
-    function starBurst(){
+    starBurst: function(){
         // Stars to collect
         for (var i = 0; i < 12; i++) {
             var star = stars.create(i * 70, 0, 'star');
@@ -203,4 +185,4 @@
             star.body.bounce.y = 0.7 + Math.random() * 0.2;
         }
     }
-})();
+}
