@@ -1,12 +1,16 @@
-gama - my first game
-====================
+gama - my first HTML5 game
+==========================
 
 My first [Phaser](http://www.photonstorm.com/phaser)-based game. **Gama** is its name due to a distinct lack of imagination.
 
 ![gama Screenshot](https://raw.githubusercontent.com/OdinsHat/gama/master/screenshot.png)
 
+(obligatory **HTML5** buzz-word!!)
+
 Recent Changes
 --------------
+* [2014-05-01] Made orb change colour from green to red when it becomes 'evil' eating orb
+* [2014-04-30] MUSIC!!
 * [2014-04-30] EVIL bouncy sphere providing STARBURST on first 2 hits but afterward will eat your ~~BALLS~~ STARS!
 * [2014-04-29] Bouncy sphere providing STARBURST!
 * [2014-04-28] Initial release
@@ -20,8 +24,14 @@ Game assets kindly provided by:
 
 \- thank you!
 
-Todo:
------
+Todo
+----
+* Clean up code
+* ~~Comment code~~
+* ~~Remove console debug messages~~
+
+Old Todo List (maybe part of new game "Drac" - stay tuned):
+--------------------------------------------------
 * Randomised ledges
 * Splash screen
 * Obstacles

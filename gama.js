@@ -9,6 +9,10 @@
     var sphereHit = 0;
     var music;
 
+    /**
+     * Preload for loading all game images, sprites and audio
+     * @return {undefined}
+     */
     function preload() {
         game.load.image('sky', 'assets/sky.png');
 
@@ -27,6 +31,10 @@
         game.load.audio('awesome', ['assets/awesome-music.ogg']);
     }
 
+    /**
+     * Creates the game world using the preloaded sprites
+     * @return {undefined}
+     */
     function create() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.add.sprite(0, 0, 'sky');
@@ -122,6 +130,10 @@
         music.play('', 0, 1, true);
     }
 
+    /**
+     * Game drawhandler that gets updated at regular intervals
+     * @return {undefined}
+     */
     function update() {
         game.physics.arcade.collide(player, platforms);
 
@@ -161,30 +173,56 @@
 
     }
 
+    /**
+     * Event handler for when the player touches a star - collecting it.
+     * Will update the score globally and the scoreboard on screen.
+     *
+     * @param  {object} player  sprite
+     * @param  {object} star    sprite
+     * @return {undefined}
+     */
     function collectStar(player, star){
         star.kill();
-
         score++;
         scoreText.text = 'Score: ' + score;
     }
 
+    /**
+     * Eent handler for when the sphere/orb touches a star. Checks if its been
+     *  hit by player more than 5 times and if it has then it will eat the
+     * star, turning red to show its blood thirsty nature.
+     *
+     * @param  {object} sphere sprite
+     * @param  {object} star   sprite
+     * @return {undefined}
+     */
     function eatStar(sphere, star){
         if(sphereHit > 5){
             sphere.tint = 0xff0000;
             star.kill();
-            console.log('Eating stars?');
             score--;
             scoreText.text = 'Score: ' + score;
         }
     }
 
-
+    /**
+     * Event handler for when the sphere/globe is touched by player. This will
+     * cause a burst of stars and increment sphereHit counter.
+     *
+     * @param  {object} sphere sprite
+     * @param  {object} player sprite
+     * @return {undefined}
+     */
     function sphereTouch(sphere, player){
         sphereHit++;
         starBurst();
     }
 
-    // STARBURST collision event with bouncy ball
+    /**
+     * Drops 12 stars from the top of the level screen
+     *
+     * @return {undefined}
+     */
     function starBurst(){
         // Stars to collect
         for (var i = 0; i < 12; i++) {
