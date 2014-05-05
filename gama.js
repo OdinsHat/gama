@@ -20,7 +20,7 @@
         game.load.image('platforml', 'assets/stonel.png');
 
         game.load.image('star', 'assets/star.png');
-        game.load.image('sphere', 'assets/sphere.png');
+        game.load.image('sphere', 'assets/greenorb.png');
 
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
@@ -169,7 +169,8 @@
     }
 
     function eatStar(sphere, star){
-        if(sphereHit >= 2){
+        if(sphereHit > 5){
+            sphere.tint = 0xff0000;
             star.kill();
             console.log('Eating stars?');
             score--;
