@@ -23,18 +23,3 @@ Game assets kindly provided by:
 * [athile](http://opengameart.org/content/colored-spheres)
 
 \- thank you!
-
-Todo
-----
-* Clean up code
-* ~~Comment code~~
-* ~~Remove console debug messages~~
-
-Old Todo List (maybe part of new game "Drac" - stay tuned):
---------------------------------------------------
-* Randomised ledges
-* Splash screen
-* Obstacles
-* Dangerous obstacles
-* Monsters
-* Multiple levels
