@@ -1,22 +1,4 @@
-var game_state = {
-    preload: function() {
-        game.load.image('sky', 'assets/sky.png');
-
-        game.load.image('ground1', 'assets/ground2.png');
-        game.load.image('ground2', 'assets/ground5.png');
-
-        game.load.image('platform', 'assets/stone1.png');
-        game.load.image('platformr', 'assets/stoner.png');
-        game.load.image('platforml', 'assets/stonel.png');
-
-        game.load.image('star', 'assets/star.png');
-        game.load.image('sphere', 'assets/sphere.png');
-
-        game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-
-        game.load.audio('awesome', ['assets/awesome-music.ogg']);
-    },
-
+var play_state = {
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.add.sprite(0, 0, 'sky');
