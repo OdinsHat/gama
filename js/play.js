@@ -139,8 +139,18 @@ var play_state = {
         this.scoreText.text = 'Score: ' + score;
     },
 
+    /**
+     * Event handler for when the sphere/orb touches a star. Checks if its been
+     *  hit by player more than 5 times and if it has then it will eat the
+     * star, turning red to show its blood thirsty nature.
+     *
+     * @param  {object} sphere sprite
+     * @param  {object} star   sprite
+     * @return {undefined}
+     */
     eatStar: function(sphere, star){
-        if(sphereHit >= 2){
+        if(sphereHit >= 5){
+            sphere.tint = 0xff0000;
             star.kill();
             console.log('Eating stars?');
             score--;

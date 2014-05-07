@@ -11,7 +11,7 @@ var load_state = {
         this.game.load.image('platforml', 'assets/stonel.png');
 
         this.game.load.image('star', 'assets/star.png');
-        this.game.load.image('sphere', 'assets/sphere.png');
+        this.game.load.image('sphere', 'assets/greenorb.png');
 
         this.game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
