@@ -1,4 +1,10 @@
 var play_state = {
+
+    /**
+     * Creates the game world using the preloaded sprites
+     *
+     * @return {undefined}
+     */
     create: function() {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.add.sprite(0, 0, 'sky');
@@ -93,6 +99,10 @@ var play_state = {
         this.music.play('', 0, 1, true);
     },
 
+    /**
+     * Game drawhandler that gets updated at regular intervals
+     * @return {undefined}
+     */
     update: function() {
         this.game.physics.arcade.collide(this.player, this.platforms);
 
@@ -132,6 +142,14 @@ var play_state = {
 
     },
 
+    /**
+     * Event handler for when the player touches a star - collecting it.
+     * Will update the score globally and the scoreboard on screen.
+     *
+     * @param  {object} player  sprite
+     * @param  {object} star    sprite
+     * @return {undefined}
+     */
     collectStar: function(player, star){
         star.kill();
 
@@ -158,13 +176,24 @@ var play_state = {
         }
     },
 
-
+    /**
+     * Event handler for when the sphere/globe is touched by player. This will
+     * cause a burst of stars and increment sphereHit counter.
+     *
+     * @param  {object} sphere sprite
+     * @param  {object} player sprite
+     * @return {undefined}
+     */
     sphereTouch: function(sphere, player){
         sphereHit++;
         this.starBurst();
     },
 
-    // STARBURST collision event with bouncy ball
+    /**
+     * Drops 12 stars from the top of the level screen
+     *
+     * @return {undefined}
+     */
     starBurst: function(){
         // Stars to collect
         for (var i = 0; i < 12; i++) {
