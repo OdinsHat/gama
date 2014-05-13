@@ -1,0 +1,30 @@
+{
+  "name": "gama",
+  "version": "0.2.5",
+  "description": "My first Phaser-based game",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OdinsHat/gama.git"
+  },
+  "keywords": [
+    "game",
+    "html5",
+    "phasor",
+    "2d",
+    "platformer",
+    "javascript"
+  ],
+  "author": "Doug Bromley",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/OdinsHat/gama/issues"
+  },
+  "homepage": "https://github.com/OdinsHat/gama",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "jshint-stylish": "^0.2.0"
+  }
+}
