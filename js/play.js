@@ -84,7 +84,7 @@ var play_state = {
         this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         // The crazy sphere
-        this.sphere = game.add.sprite(32, game.world.height - 250, 'sphere')
+        this.sphere = game.add.sprite(32, game.world.height - 250, 'sphere');
         this.game.physics.enable(this.sphere, Phaser.Physics.ARCADE);
         this.sphere.body.velocity.x = 100;
         this.sphere.body.velocity.y = 100;
@@ -205,4 +205,4 @@ var play_state = {
             this.star.body.bounce.y = 0.7 + Math.random() * 0.2;
         }
     }
-}
+};

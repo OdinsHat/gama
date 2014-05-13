@@ -25,4 +25,4 @@ var menu_state = {
     credits: function() {
         this.game.state.start('credits');
     }
-}
+};

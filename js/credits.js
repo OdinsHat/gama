@@ -22,4 +22,4 @@ var credits_state = {
     start: function(){
         this.game.state.start('play');
     }
-}
+};
