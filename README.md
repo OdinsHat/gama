@@ -7,15 +7,28 @@ My first [Phaser](http://www.photonstorm.com/phaser)-based game. **Gama** is its
 
 (obligatory **HTML5** buzz-word!!)
 
-Recent Changes
---------------
-* [2014-05-01] Made orb change colour from green to red when it becomes 'evil' eating orb
-* [2014-04-30] MUSIC!!
-* [2014-04-30] EVIL bouncy sphere providing STARBURST on first 2 hits but afterward will eat your ~~BALLS~~ STARS!
-* [2014-04-29] Bouncy sphere providing STARBURST!
-* [2014-04-28] Initial release
+## Quick Installation
+If you have node and grunt inslatted you can make use of the connect
+package to get going straight away. Here's how on your terminal:
 
-*I expect it to grow into a AAA title within a month⸮*
+```
+git clone git@github.com:OdinsHat/gama.git
+cd gama
+npm install
+grunt connect
+```
+
+## How to Play
+Its really simple:
+* Collect the stars to increase your score.
+* If you touch that nice green ball it creates more stars.
+* BUT if you hit the ball too many times it turns evil (red) and starts eating stars.
+* When it eats stars your score goes down.
+* There is no _winning_ yet - or is there? Maybe there is - maybe its something deep and....no its just got no end.
+
+_I expect it to grow into a AAA title within a month⸮_
+
+Check out my SECOND game (currently in development) called "[Drac](https://github.com/OdinsHat/drac)". A fantasy/horror platformer.
 
 Game assets kindly provided by:
 * [Photon Storm](http://www.photonstorm.com/)
