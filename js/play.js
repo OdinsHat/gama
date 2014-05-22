@@ -14,34 +14,9 @@ var play_state = {
 
         this.createFloor();
 
-        this.ledge = this.platforms.create(600, 300, 'platform');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-
-
-        this.ledge = this.platforms.create((600+60), 300, 'platformr');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-
-        this.ledge = this.platforms.create((600-60), 300, 'platforml');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-
-        this.midledge = this.platforms.create(230, 240, 'platforml');
-        this.midledge.scale.setTo(0.5, 0.5);
-        this.midledge.body.immovable = true;
-
-        this.midledge = this.platforms.create(230+60, 240, 'platformr');
-        this.midledge.scale.setTo(0.5, 0.5);
-        this.midledge.body.immovable = true;
-
-
-        this.ledge = this.platforms.create(100, 400, 'platforml');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-        this.ledge = this.platforms.create((100+60), 400, 'platformr');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
+        this.createLargePlatform(600, 300);
+        this.createSmallPlatform(230, 240);
+        this.createSmallPlatform(100, 400);
 
         // Stars to collect
         this.stars = game.add.group();
@@ -193,5 +168,30 @@ var play_state = {
             this.ground.scale.setTo(1, 1);
             this.ground.body.immovable = true;
         }
+    },
+
+    createSmallPlatform: function(x, y) {
+        this.ledge = this.platforms.create(x, y, 'platforml');
+        this.ledge.scale.setTo(0.5, 0.5);
+        this.ledge.body.immovable = true;
+
+        this.ledge = this.platforms.create(x+60, y, 'platformr');
+        this.ledge.scale.setTo(0.5, 0.5);
+        this.ledge.body.immovable = true;
+    },
+
+    createLargePlatform: function(x, y) {
+        this.ledge = this.platforms.create(x, y, 'platform');
+        this.ledge.scale.setTo(0.5, 0.5);
+        this.ledge.body.immovable = true;
+
+
+        this.ledge = this.platforms.create((x+60), y, 'platformr');
+        this.ledge.scale.setTo(0.5, 0.5);
+        this.ledge.body.immovable = true;
+
+        this.ledge = this.platforms.create((x-60), y, 'platforml');
+        this.ledge.scale.setTo(0.5, 0.5);
+        this.ledge.body.immovable = true;
     }
 };
