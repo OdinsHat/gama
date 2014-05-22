@@ -109,6 +109,9 @@ var play_state = {
         star.kill();
 
         score++;
+        if (score >= 10) {
+            this.game.state.start('win');
+        }
         this.scoreText.text = 'Score: ' + score;
     },
 
