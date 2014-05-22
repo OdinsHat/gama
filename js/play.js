@@ -12,27 +12,7 @@ var play_state = {
         this.platforms = game.add.group();
         this.platforms.enableBody = true;
 
-        this.ground = this.platforms.create(0, game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create(128, game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create((128*2), game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create((128*3), game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create((128*4), game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create((128*5), game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
-        this.ground = this.platforms.create((128*6), game.world.height - 64, 'ground1');
-        this.ground.scale.setTo(1, 1);
-        this.ground.body.immovable = true;
+        this.createFloor();
 
         this.ledge = this.platforms.create(600, 300, 'platform');
         this.ledge.scale.setTo(0.5, 0.5);
@@ -203,6 +183,15 @@ var play_state = {
             this.star.body.gravity.y = 300;
 
             this.star.body.bounce.y = 0.7 + Math.random() * 0.2;
+        }
+    },
+
+    createFloor: function() {
+        var i = 0;
+        for(i=0;i<7;i++){
+            this.ground = this.platforms.create((128*i), game.world.height - 64, 'ground1');
+            this.ground.scale.setTo(1, 1);
+            this.ground.body.immovable = true;
         }
     }
 };
