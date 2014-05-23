@@ -175,26 +175,26 @@ var play_state = {
 
     createSmallPlatform: function(x, y) {
         this.ledge = this.platforms.create(x, y, 'platforml');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
+        this.setScaleAndSolid(this.ledge);
 
         this.ledge = this.platforms.create(x+60, y, 'platformr');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
+        this.setScaleAndSolid(this.ledge);
     },
 
     createLargePlatform: function(x, y) {
         this.ledge = this.platforms.create(x, y, 'platform');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-
-
+        this.setScaleAndSolid(this.ledge);
         this.ledge = this.platforms.create((x+60), y, 'platformr');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
-
+        this.setScaleAndSolid(this.ledge);
         this.ledge = this.platforms.create((x-60), y, 'platforml');
-        this.ledge.scale.setTo(0.5, 0.5);
-        this.ledge.body.immovable = true;
+        this.setScaleAndSolid(this.ledge);
+    },
+
+    setScaleAndSolid: function(thing, scale){
+        if(!scale){
+            scale = 0.5;
+        }
+        thing.scale.setTo(scale, scale);
+        thing.body.immovable = true;
     }
 };
