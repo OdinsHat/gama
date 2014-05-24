@@ -191,9 +191,7 @@ var play_state = {
     },
 
     setScaleAndSolid: function(thing, scale){
-        if(!scale){
-            scale = 0.5;
-        }
+        scale = typeof scale !== 'undefined' ? scale : 0.5;
         thing.scale.setTo(scale, scale);
         thing.body.immovable = true;
     }
