@@ -17,4 +17,4 @@ var win_state = {
             score_label.anchor.setTo(0.5, 0.5);
         }
     }
-}
+};
